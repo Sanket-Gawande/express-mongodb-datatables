@@ -58,7 +58,7 @@ export default function Home({ data, title }: { data: DataType[], title: string 
           <tbody>
             {
               data &&
-              
+
               data.map((item, index) => {
                 return (
                   <tr key={index}
@@ -94,7 +94,7 @@ export default function Home({ data, title }: { data: DataType[], title: string 
 
 export async function getStaticProps({ params }: { params: { page: string } }) {
 
-  const res = await fetch(`http://localhost:6789/api/users/${params.page}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${params.page}`)
   const titles = {
     one: '1. Users which have income lower than $5 USD and have a car of brand “BMW” or “Mercedes”.',
     two: '2. Male Users which have phone price greater than 10, 000.',
